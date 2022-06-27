@@ -30,4 +30,25 @@ router.get(
   })
 );
 
+router.post(
+  '/',
+  asyncHandler(async function(req, res, next) {
+    try{
+      const newImage = await db.Image.create(req.body);
+      return res.json(newImage);
+    } catch (err){
+      next(err);
+    }
+  })
+);
+
+router.delete(
+  '/:id',
+  asyncHandler(async function(req, res) {
+    const image = await db.Image.findByPk(req.params.id);
+    await image.destroy();
+    return res.json(req.body);
+})
+);
+
 module.exports = router;
