@@ -33,14 +33,30 @@ const actionDeleteImage = (imageId) => {
   }
 }
 
-// this tunk gets all images of a user
-export const thunkGetAllImages = (userId) => async (dispatch) => {
+// this tunk gets a image
+export const thunkGetImage = (imageId) => async (dispatch) => {
 
-  const response = await csrfFetch(`/api/images/user/${userId}`);
+  const response = await csrfFetch(`/api/images/${imageId}`);
 
   if(response.ok) {
     const data = await response.json();
-    dispatch(setUser(data.user));
+    dispatch(actionGetImage(data.user));
+    return response;
+  } else {
+    return await response.json();
+  }
+};
+
+export const thunkCreateImage = (image) => async (dispatch) => {
+  const response = await csrfFetch(`/api/images/${image}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(image),
+  });
+
+  if(response.ok) {
+    const data = await response.json();
+    dispatch(actionCreateImage(data.user));
     return response;
   } else {
     return await response.json();
@@ -75,24 +91,45 @@ export const thunkGetAllImages = (userId) => async (dispatch) => {
 //   return response;
 // };
 
-// export const login = (user) => async (dispatch) => {
-//   const { credential, password } = user;
-//   const response = await csrfFetch('/api/session', {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       credential,
-//       password,
-//     }),
-//   });
-//   const data = await response.json();
-//   dispatch(setUser(data.user));
-//   return response;
-// };
-
 const initialState = {};
 
 const imageReducer = (state = initialState, action) => {
+
+  let newState = {...state}
+
   switch(action.type) {
+
+    case CREATE_IMAGE: {
+      if(!state[action.image.id]) {
+        const newState = {
+          ...state,
+          [action.image.id]: action.image
+        };
+        return newState;
+      }
+    }
+    return {
+      ...state,
+      [action.image.id]: action.image
+    }
+
+    case GET_IMAGE:
+      action.image.forEach(image => {
+        newState[image.id] = image
+      })
+
+      return newState;
+
+    case UPDATE_IMAGE:
+      newState = Object.assign({}, state)
+      newState.user = action.payload
+      return newState;
+
+    case DELETE_IMAGE:
+      delete newState[action.imageId]
+      return newState;
+
+
     default:
       return state;
   }
