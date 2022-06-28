@@ -12,10 +12,10 @@ const actionCreateImage = (image) => {
   }
 }
 
-const actionGetImage = (image) => {
+const actionGetImages = (images) => {
   return {
     type: GET_IMAGE,
-    image
+    images
   }
 }
 
@@ -33,19 +33,34 @@ const actionDeleteImage = (imageId) => {
   }
 }
 
-// this tunk gets a image
+
+// this tunk gets a single image
 export const thunkGetImage = (imageId) => async (dispatch) => {
 
   const response = await csrfFetch(`/api/images/${imageId}`);
 
   if(response.ok) {
     const data = await response.json();
-    dispatch(actionGetImage(data.user));
+    dispatch(actionCreateImage(data.user));
     return response;
   } else {
     return await response.json();
   }
 };
+
+//this thunk gets all the images
+export const thunkGetAllImages = () => async (dispatch) => {
+  const response = await csrfFetch(`/api/images`);
+
+  if(response.ok) {
+    const data = await response.json();
+    dispatch(actionGetImages(data));
+    return response;
+  } else {
+    return await response.json();
+  }
+};
+
 
 export const thunkCreateImage = (image) => async (dispatch) => {
   const response = await csrfFetch(`/api/images/${image}`, {
@@ -63,19 +78,6 @@ export const thunkCreateImage = (image) => async (dispatch) => {
   }
 };
 
-// export const login = (user) => async (dispatch) => {
-//   const { credential, password } = user;
-//   const response = await csrfFetch('/api/session', {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       credential,
-//       password,
-//     }),
-//   });
-//   const data = await response.json();
-//   dispatch(setUser(data.user));
-//   return response;
-// };
 
 // export const login = (user) => async (dispatch) => {
 //   const { credential, password } = user;
@@ -114,10 +116,9 @@ const imageReducer = (state = initialState, action) => {
     }
 
     case GET_IMAGE:
-      action.image.forEach(image => {
+      action.images.forEach(image => {
         newState[image.id] = image
       })
-
       return newState;
 
     case UPDATE_IMAGE:

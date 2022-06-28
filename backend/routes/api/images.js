@@ -1,12 +1,12 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const db = require('./../../db/models');
+const {Image} = require('./../../db/models');
 const router = express.Router();
 
 router.get(
   '/',
   asyncHandler(async function(req, res) {
-    const images = await db.Image.findAll();
+    const images = await Image.findAll();
     return res.json(images);
   })
 );
@@ -15,7 +15,7 @@ router.get(
   '/user/:id',
   asyncHandler(async function(req, res) {
     const userId = req.params.id;
-    const images = await db.Image.findAll({
+    const images = await Image.findAll({
       where: { userId: userId}
     });
     return res.json(images);
@@ -25,16 +25,16 @@ router.get(
 router.get(
   '/:id',
   asyncHandler(async function(req, res) {
-    const images = await db.Image.findByPk(req.params.id);
+    const images = await Image.findByPk(req.params.id);
     return res.json(images);
   })
 );
 
 router.post(
-  '/',
+  '/create',
   asyncHandler(async function(req, res, next) {
     try{
-      const newImage = await db.Image.create(req.body);
+      const newImage = await Image.create(req.body);
       return res.json(newImage);
     } catch (err){
       next(err);
@@ -45,7 +45,7 @@ router.post(
 router.delete(
   '/:id',
   asyncHandler(async function(req, res) {
-    const image = await db.Image.findByPk(req.params.id);
+    const image = await Image.findByPk(req.params.id);
     await image.destroy();
     return res.json(req.body);
 })
