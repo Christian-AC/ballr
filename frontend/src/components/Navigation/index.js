@@ -28,6 +28,10 @@ function Navigation({ isLoaded }){
         <NavLink exact to="/">Home</NavLink>
         {isLoaded && sessionLinks}
       </li>
+      <li>
+        <NavLink exact to="/images">Images</NavLink>
+        {isLoaded && sessionLinks}
+      </li>
     </ul>
   );
 }
