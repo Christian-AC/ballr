@@ -2,18 +2,21 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { thunkUpdateImage } from '../../store/images'
+import { useParams } from 'react-router-dom';
 
 
 
-const UpdateImage = ({image}) => {
+const UpdateImage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const id = image.id;
+  const { imageId } = useParams();
+  const images = useSelector(state => state.images[imageId])
+  const id = images.id;
   const userId = useSelector(state => state.session.user?.id);
   const albumId = useSelector(state => state.session.album?.id)
 
-  const [content, setContent] = useState(image.content);
-  const [imageUrl, setImageUrl] = useState(image.imageUrl);
+  const [content, setContent] = useState(images.content);
+  const [imageUrl, setImageUrl] = useState(images.imageUrl);
 
   const updateContent = (e) => setContent(e.target.value);
   const updateImage = (e) => setImageUrl(e.target.value);
@@ -35,7 +38,7 @@ const UpdateImage = ({image}) => {
         history.push(`/images/${createImage.images.id}`);
       }
     } catch (error){
-      await error.json();
+       await error.json();
     }
   }
     return (

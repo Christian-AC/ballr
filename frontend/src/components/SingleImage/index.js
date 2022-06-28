@@ -12,7 +12,7 @@ const SingleImage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { imageId } = useParams();
-  
+
 
   const userId = useSelector(state => state.session.user?.id);
   const images = useSelector(state => state.images[imageId])
@@ -20,7 +20,7 @@ const SingleImage = () => {
 
   useEffect(() => {
    dispatch(thunkGetImage(images))
-  }, [dispatch, images])
+  }, [dispatch])
 
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -35,7 +35,7 @@ const SingleImage = () => {
         className="AllImages" src={images.imageUrl}
       ></img>
       <button onClick={handleDelete}>Delete</button>
-      {/* <UpdateImage /> */}
+      <UpdateImage />
     </div>
   )
 }
