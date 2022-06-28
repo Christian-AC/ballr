@@ -32,9 +32,9 @@ const AllImages = () => {
           { images.map((image) => {
             return (
               <NavLink key={image.id} to={`/photos/${image.id}`}>
-                  <img className="allImages" src={`${image.imgUrl}`}
-
-                  ></img>
+                  <img
+                  className="AllImages" src={image.imageUrl}
+                ></img>
               </NavLink>
             );
           })}
