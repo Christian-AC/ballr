@@ -27,16 +27,14 @@ const CreateImage = () => {
       imageUrl,
       content
     };
-
-    let createImage
+    
     try{
-      createImage = await dispatch(thunkCreateImage(payload));
+     const createImage = await dispatch(thunkCreateImage(payload));
+      if (createImage) {
+        history.push(`/images/${createImage.images.id}`);
+      }
     } catch (error){
       await error.json();
-    }
-
-    if(createImage) {
-      history.push(`/images/${createImage.image.id}`)
     }
   }
     return (

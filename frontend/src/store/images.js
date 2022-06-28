@@ -36,12 +36,11 @@ const actionDeleteImage = (imageId) => {
 
 // this tunk gets a single image
 export const thunkGetImage = (imageId) => async (dispatch) => {
-
   const response = await csrfFetch(`/api/images/${imageId}`);
 
   if(response.ok) {
     const data = await response.json();
-    dispatch(actionCreateImage(data.user));
+    dispatch(actionCreateImage(data));
     return response;
   } else {
     return await response.json();
@@ -97,7 +96,7 @@ export const thunkUpdateImage = (image) => async (dispatch) => {
 
 export const thunkDeleteImage = (image) => async (dispatch) => {
 
-  const response = await csrfFetch('/api/images/', {
+  const response = await csrfFetch(`/api/images/${image.id}`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(image),
@@ -154,7 +153,6 @@ const imageReducer = (state = initialState, action) => {
     case DELETE_IMAGE:
       delete newState[action.imageId]
       return newState;
-
 
     default:
       return state;

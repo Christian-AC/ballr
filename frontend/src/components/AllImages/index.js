@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { thunkGetAllImages } from '../../store/images';
 import './images.css'
+import CreateImage from "../CreateImage"
 
 
 const AllImages = () => {
@@ -13,12 +14,12 @@ const AllImages = () => {
   const selectorImages = useSelector(state => state.images)
 
   useEffect(() => {
-    dispatch(thunkGetAllImages())
+    async function fetch(){
+      await dispatch(thunkGetAllImages())
+    }
+    fetch();
   }, [dispatch])
 
-  useEffect(() => {
-    console.log('effect images', images)
-  }, [images])
 
   useEffect(()=>{
     if(selectorImages){
@@ -29,16 +30,19 @@ const AllImages = () => {
 
   return (
     <div id="image-container">
-          { images.map((image) => {
-            return (
-              <NavLink key={image.id} to={`/photos/${image.id}`}>
-                  <img
-                  className="AllImages" src={image.imageUrl}
-                ></img>
-              </NavLink>
-            );
-          })}
-        </ div>
+      <div id="single-image">
+        { images.map((image) => {
+          return (
+            <NavLink key={image.id} to={`/images/${image.id}`}>
+                <img
+                className="AllImages" src={image.imageUrl}
+              ></img>
+            </NavLink>
+          );
+        })}
+      </div>
+      <CreateImage />
+    </ div>
   )
 }
 
