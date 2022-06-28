@@ -41,9 +41,6 @@ export const thunkGetImage = (imageId) => async (dispatch) => {
   if(response.ok) {
     const data = await response.json();
     dispatch(actionCreateImage(data));
-    return response;
-  } else {
-    return await response.json();
   }
 };
 
@@ -54,9 +51,7 @@ export const thunkGetAllImages = () => async (dispatch) => {
   if(response.ok) {
     const data = await response.json();
     dispatch(actionGetImages(data));
-    return response;
-  } else {
-    return await response.json();
+
   }
 };
 
@@ -70,15 +65,13 @@ export const thunkCreateImage = (image) => async (dispatch) => {
 
   if(response.ok) {
     const data = await response.json();
-    dispatch(actionCreateImage(data.user));
-    return response;
-  } else {
-    return await response.json();
+    dispatch(actionCreateImage(data));
+
   }
 };
 
 export const thunkUpdateImage = (image) => async (dispatch) => {
-  const response = await csrfFetch(`/api/images/create`, {
+  const response = await csrfFetch(`/api/images/${image.id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(image),
@@ -87,9 +80,7 @@ export const thunkUpdateImage = (image) => async (dispatch) => {
   if(response.ok) {
     const data = await response.json();
     dispatch(actionCreateImage(data.user));
-    return response;
-  } else {
-    return await response.json();
+
   }
 };
 
@@ -104,12 +95,8 @@ export const thunkDeleteImage = (image) => async (dispatch) => {
 
   if(response.ok) {
     dispatch(actionDeleteImage(image.id));
-    return response;
-  } else {
-    return await response.json();
+
   }
-
-
 };
 
 const initialState = {};

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { thunkGetImage, thunkDeleteImage} from '../../store/images'
+import UpdateImage from './EditButton';
 import './SingleImage.css'
 
 
@@ -11,21 +12,19 @@ const SingleImage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { imageId } = useParams();
+  
 
   const userId = useSelector(state => state.session.user?.id);
   const images = useSelector(state => state.images[imageId])
 
 
   useEffect(() => {
-    async function fetch(){
-      await dispatch(thunkGetImage(images))
-    }
-    fetch();
+   dispatch(thunkGetImage(images))
   }, [dispatch, images])
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    await dispatch(thunkDeleteImage(images));
+    dispatch(thunkDeleteImage(images));
     history.push("/images");
 }
 
@@ -36,6 +35,7 @@ const SingleImage = () => {
         className="AllImages" src={images.imageUrl}
       ></img>
       <button onClick={handleDelete}>Delete</button>
+      {/* <UpdateImage /> */}
     </div>
   )
 }

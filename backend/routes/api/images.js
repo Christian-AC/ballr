@@ -42,6 +42,19 @@ router.post(
   })
 );
 
+router.put(
+  '/:id',
+  asyncHandler(async function(req, res, next) {
+    try{
+      const updatedImage = await Image.findByPk(req.params.id);
+      await updatedImage.update(req.body);
+      return res.json(updatedImage);
+    } catch (err){
+      next(err);
+    }
+  })
+);
+
 router.delete(
   '/:id',
   asyncHandler(async function(req, res) {

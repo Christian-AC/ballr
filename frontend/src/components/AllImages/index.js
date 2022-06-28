@@ -14,10 +14,7 @@ const AllImages = () => {
   const selectorImages = useSelector(state => state.images)
 
   useEffect(() => {
-    async function fetch(){
-      await dispatch(thunkGetAllImages())
-    }
-    fetch();
+     dispatch(thunkGetAllImages())
   }, [dispatch])
 
 
@@ -33,7 +30,7 @@ const AllImages = () => {
       <div id="single-image">
         { images.map((image) => {
           return (
-            <NavLink key={image.id} to={`/images/${image.id}`}>
+            <NavLink to={`/images/${image.id}`}>
                 <img
                 className="AllImages" src={image.imageUrl}
               ></img>
