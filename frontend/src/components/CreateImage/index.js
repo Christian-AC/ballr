@@ -13,10 +13,10 @@ const CreateImage = () => {
   const albumId = useSelector(state => state.session.album?.id)
 
   const [content, setContent] = useState('');
-  const [image, setImage] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
 
   const updateContent = (e) => setContent(e.target.value);
-  const updateImage = (e) => setImage(e.target.value);
+  const updateImage = (e) => setImageUrl(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ const CreateImage = () => {
     const payload = {
       userId,
       albumId,
-      image,
+      imageUrl,
       content
     };
 
@@ -32,11 +32,11 @@ const CreateImage = () => {
     try{
       createImage = await dispatch(thunkCreateImage(payload));
     } catch (error){
-      const err = await err.json();
+      await error.json();
     }
 
     if(createImage) {
-      history.push(`/images/${createImage.id}`)
+      history.push(`/images/${createImage.image.id}`)
     }
   }
     return (
@@ -46,7 +46,7 @@ const CreateImage = () => {
             <input
               type="text"
               placeholder="Image URL"
-              value={image}
+              value={imageUrl}
               onChange={updateImage} />
             <input
                 type="text"

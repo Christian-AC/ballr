@@ -63,7 +63,7 @@ export const thunkGetAllImages = () => async (dispatch) => {
 
 
 export const thunkCreateImage = (image) => async (dispatch) => {
-  const response = await csrfFetch(`/api/images/${image}`, {
+  const response = await csrfFetch(`/api/images/create`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(image),
@@ -78,20 +78,40 @@ export const thunkCreateImage = (image) => async (dispatch) => {
   }
 };
 
+export const thunkUpdateImage = (image) => async (dispatch) => {
+  const response = await csrfFetch(`/api/images/create`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(image),
+  });
 
-// export const login = (user) => async (dispatch) => {
-//   const { credential, password } = user;
-//   const response = await csrfFetch('/api/session', {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       credential,
-//       password,
-//     }),
-//   });
-//   const data = await response.json();
-//   dispatch(setUser(data.user));
-//   return response;
-// };
+  if(response.ok) {
+    const data = await response.json();
+    dispatch(actionCreateImage(data.user));
+    return response;
+  } else {
+    return await response.json();
+  }
+};
+
+
+export const thunkDeleteImage = (image) => async (dispatch) => {
+
+  const response = await csrfFetch('/api/images/', {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(image),
+  });
+
+  if(response.ok) {
+    dispatch(actionDeleteImage(image.id));
+    return response;
+  } else {
+    return await response.json();
+  }
+
+
+};
 
 const initialState = {};
 
@@ -121,10 +141,15 @@ const imageReducer = (state = initialState, action) => {
       })
       return newState;
 
-    case UPDATE_IMAGE:
-      newState = Object.assign({}, state)
-      newState.user = action.payload
-      return newState;
+    case UPDATE_IMAGE: {
+      return {
+          newState,
+          [action.image.id]: {
+            ...state[action.image.id],
+            ...action.image,
+          }
+        };
+      }
 
     case DELETE_IMAGE:
       delete newState[action.imageId]

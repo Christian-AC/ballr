@@ -5,7 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import CreateImage from "./components/CreateImage"
-import AllImages from "./components/Images";
+import AllImages from "./components/AllImages";
 
 function App() {
   const dispatch = useDispatch();
