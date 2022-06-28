@@ -79,7 +79,7 @@ export const thunkUpdateImage = (image) => async (dispatch) => {
 
   if(response.ok) {
     const data = await response.json();
-    dispatch(actionCreateImage(data.user));
+    dispatch(actionCreateImage(data));
 
   }
 };
@@ -108,18 +108,14 @@ const imageReducer = (state = initialState, action) => {
   switch(action.type) {
 
     case CREATE_IMAGE: {
-      if(!state[action.image.id]) {
+
         const newState = {
           ...state,
           [action.image.id]: action.image
         };
         return newState;
-      }
     }
-    return {
-      ...state,
-      [action.image.id]: action.image
-    }
+
 
     case GET_IMAGE:
       action.images.forEach(image => {
