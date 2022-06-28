@@ -14,10 +14,7 @@ const AllImages = () => {
   const selectorImages = useSelector(state => state.images)
 
   useEffect(() => {
-    async function fetch(){
-      await dispatch(thunkGetAllImages())
-    }
-    fetch();
+     dispatch(thunkGetAllImages())
   }, [dispatch])
 
 

@@ -30,7 +30,7 @@ function Navigation({ isLoaded }){
       </li>
       <li>
         <NavLink exact to="/images">Images</NavLink>
-        {isLoaded && sessionLinks}
+        {sessionLinks}
       </li>
     </ul>
   );

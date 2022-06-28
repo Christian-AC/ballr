@@ -23,15 +23,16 @@ function App() {
           <Route path="/images"exact>
             <AllImages />
           </Route>
+          <Route path="/images/:imageId">
+            <SingleImage />
+          </Route>
           <Route path="/signup">
             <SignupFormPage />
           </Route>
           <Route path="/images/create">
             <CreateImage />
           </Route>
-          <Route path="/images/:imageId">
-            <SingleImage />
-          </Route>
+
         </Switch>
       )}
     </>
