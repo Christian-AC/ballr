@@ -9,7 +9,7 @@ const CreateImage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const userId = useSelector(state => state.session.user?.id);
+  const userId = useSelector(state => state.session.user.id);
   const albumId = useSelector(state => state.session.album?.id)
 
   const [content, setContent] = useState('');

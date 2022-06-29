@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { thunkGetAllImages } from '../../store/images';
+import { NavLink } from 'react-router-dom';
 
 const AlbumImages = ({albumId}) => {
   const dispatch = useDispatch();
@@ -19,11 +20,14 @@ const AlbumImages = ({albumId}) => {
 
   return (
     <main>
-      <h1> testing</h1>
       <div className="comment-detail">
         { images.map((image) => {
           return (
-            <h1>{image.content}</h1>
+            <NavLink key={image.id} to={`/images/${image.id}`}>
+                <img
+                className="AllImages" src={image.imageUrl} alt='some value'
+              ></img>
+            </NavLink>
           );
         })}
       </ div>

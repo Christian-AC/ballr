@@ -7,7 +7,7 @@ const CreateAlbum = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const userId = useSelector(state => state.session.user?.id);
+  const userId = useSelector(state => state.session.user.id);
 
   const [title, setTitle] = useState('');
   const [imageUrl, setImageUrl] = useState('');

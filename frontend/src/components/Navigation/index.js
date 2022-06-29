@@ -25,7 +25,7 @@ function Navigation({ isLoaded }){
   return (
     <div className="Nav-bar">
       <ul>
-        <li id="HomeButton">
+        <li>
           {isLoaded && sessionLinks}
         </li>
         <li>

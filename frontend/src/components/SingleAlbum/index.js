@@ -1,10 +1,8 @@
-import { useEffect, useState  } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
-import { thunkGetImage } from '../../store/images'
-import { thunkGetAlbum, thunkDeleteAlbum } from '../../store/album'
+import { thunkGetAlbum, thunkDeleteAlbum, thunkGetAllALbums } from '../../store/album'
 import UpdateAlbum from './EditButton';
 import './SingleAlbum.css'
 import AlbumImages from '../AlbumImages';
@@ -16,18 +14,19 @@ const SingleAlbum = () => {
   const history = useHistory();
   const { albumId } = useParams();
   const albums = useSelector(state => state.albums[albumId])
-  const userId = useSelector(state => state.session.user?.id);
+  const userId = useSelector(state => state.session.user.id);
 
 
-  const [images, setImages] = useState([])
-  const selectorImages = useSelector(state => state.images)
+  // const [images, setImages] = useState([])
+  // const selectorImages = useSelector(state => state.images)
 
 
-  useEffect(()=>{
-    if(selectorImages){
-      setImages(Object.values(selectorImages))
-    }
-  },[selectorImages])
+  // useEffect(()=>{
+  //   if(selectorImages){
+  //     setImages(Object.values(selectorImages))
+  //   }
+  // },[selectorImages])
+
 
   useEffect(() => {
     async function getAlbum() {
@@ -49,8 +48,8 @@ const SingleAlbum = () => {
         className="AllImages" src={albums.imageUrl} alt="some-value"
       ></img>
         {albums.userId === userId ? <button onClick={handleDelete}>Delete Album</button> : null}
+        {albums.userId === userId ? <UpdateAlbum /> : null}
         <AlbumImages albumId={albums.id} />
-      <UpdateAlbum />
     </div>
   )
 }
