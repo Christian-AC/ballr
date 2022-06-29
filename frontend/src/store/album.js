@@ -57,7 +57,7 @@ export const thunkGetAllALbums = () => async (dispatch) => {
 
 
 export const thunkCreateAlbum = (album) => async (dispatch) => {
-  const response = await csrfFetch(`/api/albums/create`, {
+  const response = await csrfFetch(`/api/albums`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(album),

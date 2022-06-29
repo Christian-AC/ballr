@@ -45,7 +45,7 @@ export const thunkGetImage = (imageId) => async (dispatch) => {
 };
 
 //this thunk gets all the images
-export const thunkGetAllImages = () => async (dispatch) => {
+export const thunkGetAllImages = (images) => async (dispatch) => {
   const response = await csrfFetch(`/api/images`);
 
   if(response.ok) {
@@ -57,7 +57,7 @@ export const thunkGetAllImages = () => async (dispatch) => {
 
 
 export const thunkCreateImage = (image) => async (dispatch) => {
-  const response = await csrfFetch(`/api/images/create`, {
+  const response = await csrfFetch(`/api/images`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(image),

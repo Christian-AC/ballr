@@ -33,6 +33,7 @@ const AllAlbums = () => {
                 <img
                 className="AllImages" src={album.imageUrl} alt='some value'
               ></img>
+               <h2 id="album-titles">{album.title}</h2>
             </NavLink>
           );
         })}
