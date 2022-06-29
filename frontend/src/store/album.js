@@ -35,7 +35,7 @@ const actionDeleteAlbum = (albumId) => {
 
 
 // this tunk gets a single album
-export const thunkGetalbum = (albumId) => async (dispatch) => {
+export const thunkGetAlbum = (albumId) => async (dispatch) => {
   const response = await csrfFetch(`/api/albums/${albumId.id}`);
 
   if(response.ok) {
@@ -56,7 +56,7 @@ export const thunkGetAllALbums = () => async (dispatch) => {
 };
 
 
-export const thunkCreatealbum = (album) => async (dispatch) => {
+export const thunkCreateAlbum = (album) => async (dispatch) => {
   const response = await csrfFetch(`/api/albums/create`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -115,7 +115,6 @@ const albumReducer = (state = initialState, action) => {
         };
         return newState;
     }
-
 
     case GET_ALBUMS:
       action.albums.forEach(album => {

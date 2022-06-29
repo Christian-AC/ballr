@@ -6,12 +6,14 @@ module.exports = {
       {
         title: "2022 NBA Finals",
         userId: 1,
+        imageUrl: 'https://nypost.com/wp-content/uploads/sites/2/2022/06/1403377703.jpg?quality=75&strip=all',
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         title: "Outdoor Basketball",
         userId: 2,
+        imageUrl: 'https://nypost.com/wp-content/uploads/sites/2/2022/06/1403377703.jpg?quality=75&strip=all',
         createdAt: new Date(),
         updatedAt: new Date()
       }
