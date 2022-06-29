@@ -19,12 +19,12 @@ const actionGetAlbums = (albums) => {
   }
 }
 
-const actionUpdateAlbum = (album) => {
-  return {
-    type: UPDATE_ALBUM,
-    album
-  }
-}
+// const actionUpdateAlbum = (album) => {
+//   return {
+//     type: UPDATE_ALBUM,
+//     album
+//   }
+// }
 
 const actionDeleteAlbum = (albumId) => {
   return {
