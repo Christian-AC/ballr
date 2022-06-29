@@ -16,6 +16,7 @@ const SingleAlbum = () => {
   const history = useHistory();
   const { albumId } = useParams();
   const albums = useSelector(state => state.albums[albumId])
+  const userId = useSelector(state => state.session.user?.id);
 
 
   const [images, setImages] = useState([])
@@ -47,7 +48,7 @@ const SingleAlbum = () => {
       <img
         className="AllImages" src={albums.imageUrl} alt="some-value"
       ></img>
-        <button onClick={handleDelete}>Delete</button>
+        {albums.userId === userId ? <button onClick={handleDelete}>Delete Album</button> : null}
         <AlbumImages albumId={albums.id} />
       <UpdateAlbum />
     </div>

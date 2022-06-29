@@ -23,24 +23,21 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-      <li>
-        <NavLink exact to="/images">Images</NavLink>
-        {sessionLinks}
-      </li>
-      <li>
-        <NavLink exact to="/albums">Albums</NavLink>
-        {sessionLinks}
-      </li>
-      <li>
-        <NavLink exact to="/images/create">Upload images</NavLink>
-        {sessionLinks}
-      </li>
-    </ul>
+    <div className="Nav-bar">
+      <ul>
+        <li id="HomeButton">
+          {isLoaded && sessionLinks}
+        </li>
+        <li>
+          <NavLink exact to="/images">Images</NavLink>
+
+        </li>
+        <li>
+          <NavLink exact to="/albums">Albums</NavLink>
+
+        </li>
+      </ul>
+    </div>
   );
 }
 

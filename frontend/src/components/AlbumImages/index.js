@@ -9,8 +9,6 @@ const AlbumImages = ({albumId}) => {
     return Object.values(state.images).filter(image => image.albumId === albumId);
   })
 
-
-  console.log("here:", images);
   useEffect(() => {
     async function getImages() {
       await dispatch(thunkGetAllImages(albumId))
