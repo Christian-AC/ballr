@@ -1,37 +1,34 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { thunkCreateImage } from '../../store/images'
-import './CreateImage.css'
+import { thunkCreateAlbum } from '../../store/album';
 
-
-const CreateImage = () => {
+const CreateAlbum = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const userId = useSelector(state => state.session.user?.id);
-  // const albumId = useSelector(state => state.session.album?.id)
 
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState('');
   const [imageUrl, setImageUrl] = useState('');
 
-  const updateContent = (e) => setContent(e.target.value);
+  const updateTitle = (e) => setTitle(e.target.value);
   const updateImage = (e) => setImageUrl(e.target.value);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const payload = {
       userId,
-      // albumId,
       imageUrl,
-      content
+      title
     };
 
     try{
-     const createImage = await dispatch(thunkCreateImage(payload));
-      if (createImage) {
-        history.push(`/images/${createImage.images.id}`);
+     const createAlbum = await dispatch(thunkCreateAlbum(payload));
+      if (createAlbum) {
+        history.push(`/albums/${createAlbum.album.id}`);
       }
     } catch (error){
       await error.json();
@@ -40,21 +37,21 @@ const CreateImage = () => {
     return (
       <div className="form-container">
         <form onSubmit={handleSubmit} className='create-form'>
-            <h3> Upload a new image </h3>
+            <h3> Create a new album </h3>
             <input
               type="text"
-              placeholder="Image URL"
+              placeholder="Album Cover"
               value={imageUrl}
               onChange={updateImage} />
             <input
                 type="text"
-                placeholder="Caption"
-                value={content}
-                onChange={updateContent} />
+                placeholder="Title"
+                value={title}
+                onChange={updateTitle} />
             <button type="submit">Create new pic</button>
         </form>
       </div>
           )
 }
 
-export default CreateImage;
+export default CreateAlbum;

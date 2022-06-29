@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import CreateImage from "./components/CreateImage";
 import AllImages from "./components/AllImages";
 import SingleImage from "./components/SingleImage";
+import AllAlbums from "./components/AllAlbums";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +23,9 @@ function App() {
         <Switch>
           <Route path="/images"exact>
             <AllImages />
+          </Route>
+          <Route path="/albums"exact>
+            <AllAlbums />
           </Route>
           <Route path="/images/:imageId">
             <SingleImage />

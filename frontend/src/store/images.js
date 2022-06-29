@@ -116,7 +116,6 @@ const imageReducer = (state = initialState, action) => {
         return newState;
     }
 
-
     case GET_IMAGE:
       action.images.forEach(image => {
         newState[image.id] = image
