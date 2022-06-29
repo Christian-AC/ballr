@@ -21,7 +21,7 @@ const SingleImage = () => {
     await dispatch(thunkGetImage(images))
     }
     getImages()
-  }, [dispatch, images])
+  }, [dispatch])
 
   const handleDelete = async (e) => {
     e.preventDefault();

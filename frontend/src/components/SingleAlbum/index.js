@@ -7,7 +7,7 @@ import { thunkGetImage } from '../../store/images'
 import { thunkGetAlbum, thunkDeleteAlbum } from '../../store/album'
 import UpdateAlbum from './EditButton';
 import './SingleAlbum.css'
-import AllImages from '../AllImages';
+import AlbumImages from '../AlbumImages';
 
 
 const SingleAlbum = () => {
@@ -24,7 +24,6 @@ const SingleAlbum = () => {
 
   useEffect(()=>{
     if(selectorImages){
-      console.log(selectorImages)
       setImages(Object.values(selectorImages))
     }
   },[selectorImages])
@@ -49,17 +48,7 @@ const SingleAlbum = () => {
         className="AllImages" src={albums.imageUrl} alt="some-value"
       ></img>
         <button onClick={handleDelete}>Delete</button>
-      <div>
-      { images.map((image) => {
-          return (
-            <NavLink key={image.id} to={`/images/${image.id}`}>
-                <img
-                className="AllImages" src={image.imageUrl} alt='some value'
-              ></img>
-            </NavLink>
-          );
-        })}
-        </div>
+        <AlbumImages albumId={albums.id} />
       <UpdateAlbum />
     </div>
   )

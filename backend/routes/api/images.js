@@ -31,7 +31,7 @@ router.get(
 );
 
 router.post(
-  '/create',
+  '/',
   asyncHandler(async function(req, res, next) {
     try{
       const newImage = await Image.create(req.body);
