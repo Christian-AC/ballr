@@ -20,7 +20,7 @@ const SingleImage = () => {
 
   useEffect(() => {
    dispatch(thunkGetImage(images))
-  }, [dispatch, images])
+  }, [dispatch])
 
   const handleDelete = async (e) => {
     e.preventDefault();
