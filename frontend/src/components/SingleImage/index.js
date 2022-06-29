@@ -14,13 +14,14 @@ const SingleImage = () => {
   const { imageId } = useParams();
 
 
-
   const images = useSelector(state => state.images[imageId])
 
-
   useEffect(() => {
-   dispatch(thunkGetImage(images))
-  }, [dispatch])
+    async function getImages() {
+    await dispatch(thunkGetImage(images))
+    }
+    getImages()
+  }, [dispatch, images])
 
   const handleDelete = async (e) => {
     e.preventDefault();

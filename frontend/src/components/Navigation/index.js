@@ -32,6 +32,10 @@ function Navigation({ isLoaded }){
         <NavLink exact to="/images">Images</NavLink>
         {sessionLinks}
       </li>
+      <li>
+        <NavLink exact to="/albums">Albums</NavLink>
+        {sessionLinks}
+      </li>
     </ul>
   );
 }
