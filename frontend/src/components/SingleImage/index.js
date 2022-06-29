@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
@@ -14,13 +14,13 @@ const SingleImage = () => {
   const { imageId } = useParams();
 
 
-  const userId = useSelector(state => state.session.user?.id);
+
   const images = useSelector(state => state.images[imageId])
 
 
   useEffect(() => {
    dispatch(thunkGetImage(images))
-  }, [dispatch])
+  }, [dispatch, images])
 
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -32,7 +32,7 @@ const SingleImage = () => {
     <div className="image-container">
       <h1>{images.content}</h1>
       <img
-        className="AllImages" src={images.imageUrl}
+        className="AllImages" src={images.imageUrl} alt="some-value"
       ></img>
       <button onClick={handleDelete}>Delete</button>
       <UpdateImage />

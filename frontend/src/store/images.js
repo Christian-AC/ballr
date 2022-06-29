@@ -19,12 +19,12 @@ const actionGetImages = (images) => {
   }
 }
 
-const actionUpdateImage = (image) => {
-  return {
-    type: UPDATE_IMAGE,
-    image
-  }
-}
+// const actionUpdateImage = (image) => {
+//   return {
+//     type: UPDATE_IMAGE,
+//     image
+//   }
+// }
 
 const actionDeleteImage = (imageId) => {
   return {
