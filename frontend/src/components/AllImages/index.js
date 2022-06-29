@@ -32,7 +32,7 @@ const AllImages = () => {
           return (
             <NavLink key={image.id} to={`/images/${image.id}`}>
                 <img
-                className="AllImages" src={image.imageUrl}
+                className="AllImages" src={image.imageUrl} alt='some value'
               ></img>
             </NavLink>
           );

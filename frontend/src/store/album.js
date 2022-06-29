@@ -14,7 +14,7 @@ const actionCreateAlbum = (album) => {
 
 const actionGetAlbums = (albums) => {
   return {
-    type: GET_ALBUM,
+    type: GET_ALBUMS,
     albums
   }
 }
@@ -26,7 +26,7 @@ const actionUpdateAlbum = (album) => {
   }
 }
 
-const actionDeletealbum = (albumId) => {
+const actionDeleteAlbum = (albumId) => {
   return {
     type: DELETE_ALBUM,
     albumId
@@ -117,7 +117,7 @@ const albumReducer = (state = initialState, action) => {
     }
 
 
-    case GET_ALBUM:
+    case GET_ALBUMS:
       action.albums.forEach(album => {
         newState[album.id] = album
       })
