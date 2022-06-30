@@ -1,4 +1,37 @@
 .Nav-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
   border: black solid 1px;
+  background-color: grey;
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 1px 1px .4em rgb(36, 36, 36);
 }
 
+a{
+  padding: 2em;
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+a.active{
+  color: purple;
+}
+
+ul{
+  display: flex;
+  align-items: stretch;
+  /* justify-content:space-between; */
+  list-style-type: none;
+}
+
+#profileButton{
+  background:black;
+  color:white;
+  position: relative;
+  left: 10px;
+  border: black solid 4px
+}

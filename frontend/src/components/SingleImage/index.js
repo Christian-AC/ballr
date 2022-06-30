@@ -36,7 +36,7 @@ const SingleImage = () => {
         className="AllImages" src={images.imageUrl} alt="some-value"
       ></img>
       {images.userId === userId ? <button onClick={handleDelete}>Delete Photo</button> : null}
-      <UpdateImage />
+      {images.userId === userId ? <UpdateImage /> : null}
     </div>
   )
 }

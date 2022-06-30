@@ -27,7 +27,6 @@ const SingleAlbum = () => {
   //   }
   // },[selectorImages])
 
-
   useEffect(() => {
     async function getAlbum() {
     await dispatch(thunkGetAlbum(albums))

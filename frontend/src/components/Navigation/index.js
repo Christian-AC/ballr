@@ -37,15 +37,16 @@ function Navigation({ isLoaded }){
     <div className="Nav-bar">
       <ul>
         <li>
-          {isLoaded && sessionLinks}
+          <NavLink exact to="/">Home</NavLink>
         </li>
         <li>
           <NavLink exact to="/images">Images</NavLink>
-
         </li>
         <li>
           <NavLink exact to="/albums">Albums</NavLink>
-
+        </li>
+        <li id="profileButton">
+          {isLoaded && sessionLinks}
         </li>
       </ul>
     </div>
