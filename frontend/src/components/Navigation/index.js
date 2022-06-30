@@ -27,7 +27,7 @@ function Navigation({ isLoaded }){
         <LoginFormModal />
         <NavLink to="/signup">Sign Up</NavLink>
         <form onSubmit={demoLogin}>
-            <button type="submit">Demo User Login</button>
+            <button type="submit">Demo User</button>
           </form>
       </>
     );
@@ -37,13 +37,13 @@ function Navigation({ isLoaded }){
     <div className="Nav-bar">
       <ul>
         <li>
-          <NavLink exact to="/">Home</NavLink>
-        </li>
-        <li>
-          <NavLink exact to="/images">Images</NavLink>
+          <NavLink exact to="/">Ballr</NavLink>
         </li>
         <li>
           <NavLink exact to="/albums">Albums</NavLink>
+        </li>
+        <li>
+          <NavLink exact to="/images">Images</NavLink>
         </li>
         <li id="profileButton">
           {isLoaded && sessionLinks}

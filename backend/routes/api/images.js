@@ -1,7 +1,10 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
+const { check } = require('express-validator');
 const {Image} = require('./../../db/models');
 const router = express.Router();
+
+
 
 router.get(
   '/',
@@ -31,7 +34,7 @@ router.get(
 );
 
 router.post(
-  '/',
+  '/', 
   asyncHandler(async function(req, res, next) {
     try{
       const newImage = await Image.create(req.body);

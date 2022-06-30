@@ -12,6 +12,7 @@ const AllImages = () => {
   const [images, setImages] = useState([])
 
   const selectorImages = useSelector(state => state.images)
+  const sessionUser = useSelector(state => state.session.user);
 
   useEffect(() => {
      dispatch(thunkGetAllImages())
@@ -38,7 +39,7 @@ const AllImages = () => {
           );
         })}
       </div>
-      <CreateImage />
+      {sessionUser ? <CreateImage /> : null}
     </ div>
   )
 }

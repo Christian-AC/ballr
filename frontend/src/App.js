@@ -36,6 +36,7 @@ function App() {
           </Route>
           <Route path="/">
             <SignupFormPage />
+            <AllAlbums />
           </Route>
           <Route path="/images/create">
             <CreateImage />

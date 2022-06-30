@@ -2,11 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: start;
-  border: black solid 1px;
-  background-color: grey;
+  background-color: orange;
   width: 100%;
   margin-bottom: 20px;
-  box-shadow: 1px 1px .4em rgb(36, 36, 36);
+  box-shadow: white;
 }
 
 a{
@@ -18,7 +17,7 @@ a{
 }
 
 a.active{
-  color: purple;
+  color: black;
 }
 
 ul{
@@ -28,10 +27,24 @@ ul{
   list-style-type: none;
 }
 
+
+button {
+  background-color: orange; /* Green */
+  border: none;
+  color: black;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: bold;
+}
+
 #profileButton{
-  background:black;
+  position: relative;
+  right: 200%;
+  background-color:orange;
   color:white;
   position: relative;
   left: 10px;
-  border: black solid 4px
 }
