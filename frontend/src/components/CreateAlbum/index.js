@@ -47,7 +47,8 @@ const CreateAlbum = () => {
                 type="text"
                 placeholder="Title"
                 value={title}
-                onChange={updateTitle} />
+                onChange={updateTitle}
+                required />
             <button type="submit">Create new pic</button>
         </form>
       </div>
