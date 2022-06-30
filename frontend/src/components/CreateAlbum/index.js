@@ -39,8 +39,8 @@ const CreateAlbum = () => {
         <form onSubmit={handleSubmit} className='create-form'>
             <h3> Create a new album </h3>
             <input
-              type="text"
-              placeholder="Album Cover"
+              type="url"
+              placeholder="Album Cover URL"
               value={imageUrl}
               onChange={updateImage} />
             <input

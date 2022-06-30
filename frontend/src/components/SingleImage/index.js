@@ -12,7 +12,7 @@ const SingleImage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { imageId } = useParams();
-  const userId = useSelector(state => state.session.user?.id);
+  const userId = useSelector(state => state.session.user.id);
 
   const images = useSelector(state => state.images[imageId])
 
