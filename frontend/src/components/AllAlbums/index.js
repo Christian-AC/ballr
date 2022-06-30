@@ -11,6 +11,7 @@ const AllAlbums = () => {
   const [albums, setAlbums] = useState([])
 
   const selectorAlbums = useSelector(state => state.albums)
+  const sessionUser = useSelector(state => state.session.user);
 
   useEffect(() => {
      dispatch(thunkGetAllALbums())
@@ -38,7 +39,7 @@ const AllAlbums = () => {
           );
         })}
       </div>
-      <CreateAlbum />
+     {sessionUser ? <CreateAlbum /> : null}
     </ div>
   )
 }
