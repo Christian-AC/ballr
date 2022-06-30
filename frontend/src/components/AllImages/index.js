@@ -20,7 +20,7 @@ const AllImages = () => {
 
   useEffect(()=>{
     if(selectorImages){
-      console.log(selectorImages)
+      // console.log(selectorImages)
       setImages(Object.values(selectorImages))
     }
   },[selectorImages])
