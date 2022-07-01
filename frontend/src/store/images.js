@@ -34,7 +34,7 @@ const actionDeleteImage = (imageId) => {
 }
 
 
-// this tunk gets a single image
+
 export const thunkGetImage = (imageId) => async (dispatch) => {
   const response = await csrfFetch(`/api/images/${imageId.id}`);
 
