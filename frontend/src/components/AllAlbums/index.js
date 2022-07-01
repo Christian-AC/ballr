@@ -30,7 +30,7 @@ const AllAlbums = () => {
       <h1>Albums</h1>
         { albums.map((album) => {
           return (
-            <div id="single-album">
+            <div id="single-album" key={album.id}>
               <NavLink key={album.id} to={`/albums/${album.id}`}>
                   <img
                   className="AllImages" src={album.imageUrl} alt='some value'

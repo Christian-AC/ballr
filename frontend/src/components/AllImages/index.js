@@ -32,7 +32,7 @@ const AllImages = () => {
       <div>
         { images.map((image) => {
           return (
-            <div>
+            <div key={image.id}>
               <NavLink key={image.id} to={`/images/${image.id}`}>
                   <img id="single-image"
                   className="AllImages" src={image.imageUrl} alt='some value'
