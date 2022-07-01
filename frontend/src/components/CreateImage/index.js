@@ -43,7 +43,7 @@ const CreateImage = () => {
         history.push(`/images/${createImage.images.id}`);
       }
     } catch (error){
-      await error.json();
+      await error.json(error);
     }
   }
     return (
