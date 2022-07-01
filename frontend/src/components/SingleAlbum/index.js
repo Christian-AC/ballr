@@ -42,13 +42,15 @@ const SingleAlbum = () => {
 }
 
   return (
-    <div className="image-container">
-      <h1>{albums.content}</h1>
-      <img
-        className="AllImages" src={albums.imageUrl} alt="some-value"
-      ></img>
-        {albums.userId === userId ? <button onClick={handleDelete}>Delete Album</button> : null}
+    <div id="single-album-container">
+      <div id='album-container'>
+        <h1>{albums.title}</h1>
+        <img
+        className="album-cover" src={albums.imageUrl} alt="some-value"
+        ></img>
+        {albums.userId === userId ? <button className="delete" onClick={handleDelete}>Delete Album</button> : null}
         {albums.userId === userId ? <UpdateAlbum /> : null}
+      </div >
         <AlbumImages albumId={albums.id} />
     </div>
   )

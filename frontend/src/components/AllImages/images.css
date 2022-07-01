@@ -1,4 +1,31 @@
-img {
+/* img {
   width: 100px;
   height: 100px;
+} */
+#allImages-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+img.AllImages:hover{
+  box-shadow: 5px 5px 5px 5px #a9a9a9;
+
+}
+
+#image-container{
+  width: 80%;
+  margin-left: 10%;
+  display: flex;
+  flex-direction: row;
+  border: rgb(211, 211, 211) solid 1px;
+
+}
+
+.AllImages{
+  width: 250px;
+  height: 225px;
+  margin: 20px;
 }

@@ -54,7 +54,8 @@ const CreateImage = () => {
               type="url"
               placeholder="Image URL"
               value={imageUrl}
-              onChange={updateImage} />
+              onChange={updateImage}
+              required />
             <input
                 type="text"
                 placeholder="Caption"

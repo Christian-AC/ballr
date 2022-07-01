@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { thunkUpdateAlbum } from '../../store/album'
@@ -16,8 +16,25 @@ const UpdateAlbum = () => {
 
 
   const [content, setContent] = useState(albums.title);
-
   const [imageUrl, setImageUrl] = useState(albums.imageUrl);
+  const [showMenu, setShowMenu] = useState(false);
+
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true);
+  };
+
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = () => {
+      setShowMenu(false);
+    };
+
+    document.addEventListener('click', closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
 
   const updateContent = (e) => setContent(e.target.value);
   const updateAlbum = (e) => setImageUrl(e.target.value);
@@ -43,22 +60,29 @@ const UpdateAlbum = () => {
     }
   }
     return (
-      <div className="form-container">
-        <form onSubmit={handleSubmit} className='create-form'>
-            <h3> Update Pic </h3>
-            <input
-              type="text"
-              placeholder="Image URL"
-              value={imageUrl}
-              onChange={updateAlbum} />
-            <input
+      <>
+      <button onClick={openMenu}>
+        Edit Album
+      </button>
+      {showMenu && (
+        <div className="form-container">
+          <form onSubmit={handleSubmit} className='create-form'>
+              <h3> Update Pic </h3>
+              <input
                 type="text"
-                placeholder="Caption"
-                value={content}
-                onChange={updateContent} />
-            <button type="submit">Edit Picture</button>
-        </form>
-      </div>
+                placeholder="Image URL"
+                value={imageUrl}
+                onChange={updateAlbum} />
+              <input
+                  type="text"
+                  placeholder="Caption"
+                  value={content}
+                  onChange={updateContent} />
+              <button type="submit">Submit</button>
+          </form>
+        </div>
+      )}
+      </>
           )
 }
 

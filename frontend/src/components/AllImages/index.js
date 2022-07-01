@@ -27,9 +27,9 @@ const AllImages = () => {
   },[selectorImages])
 
   return (
-    <div id="image-container">
+    <div id="allImages-container">
       <h1>Explore Images</h1>
-      <div>
+      <div id="image-container">
         { images.map((image) => {
           return (
             <div key={image.id}>
@@ -38,7 +38,7 @@ const AllImages = () => {
                   className="AllImages" src={image.imageUrl} alt='some value'
                 ></img>
               </NavLink>
-                <h2>{image.content}</h2>
+                {/* <h2>{image.content}</h2> */}
             </div>
           );
         })}
