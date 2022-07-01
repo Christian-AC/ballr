@@ -27,18 +27,19 @@ const AllAlbums = () => {
 
   return (
     <div id="albums-container">
-      <div id="single-album">
+      <h1>Albums</h1>
         { albums.map((album) => {
           return (
-            <NavLink key={album.id} to={`/albums/${album.id}`}>
-                <img
-                className="AllImages" src={album.imageUrl} alt='some value'
-              ></img>
-               <h2 id="album-titles">{album.title}</h2>
-            </NavLink>
+            <div id="single-album" key={album.id}>
+              <NavLink key={album.id} to={`/albums/${album.id}`}>
+                  <img
+                  className="AllImages" src={album.imageUrl} alt='some value'
+                ></img>
+              </NavLink>
+                <h2 id="album-titles">{album.title}</h2>
+            </div>
           );
         })}
-      </div>
      {sessionUser ? <CreateAlbum /> : null}
     </ div>
   )

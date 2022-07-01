@@ -1,0 +1,25 @@
+#signup-container {
+  display: flex;
+  /* align-items:start; */
+  align-content: space-between;
+  margin-top: 10%;
+  margin-left: 35%;
+  margin-right: 50%;
+  flex-direction: column;
+  border: black solid 2px;
+  background-color: orange;
+  border-radius: 15px 50px 30px 5px;
+  color: white;
+}
+
+
+#signup-label {
+  display: flex;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+#signUp-button {
+  margin-top: 10px;
+  border: black solid 1px;
+}

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { thunkGetAlbum, thunkDeleteAlbum, thunkGetAllALbums } from '../../store/album'
+import { thunkGetAlbum, thunkDeleteAlbum } from '../../store/album'
 import UpdateAlbum from './EditButton';
 import './SingleAlbum.css'
 import AlbumImages from '../AlbumImages';
@@ -32,6 +32,7 @@ const SingleAlbum = () => {
     await dispatch(thunkGetAlbum(albums))
     }
     getAlbum()
+    // eslint-disable-next-line
   }, [dispatch])
 
   const handleDelete = async (e) => {
