@@ -15,28 +15,28 @@ const UpdateAlbum = () => {
   const userId = useSelector(state => state.session.user?.id);
 
 
-  const [content, setContent] = useState(albums.title);
+  const [title, setTitle] = useState(albums.title);
   const [imageUrl, setImageUrl] = useState(albums.imageUrl);
-  const [showMenu, setShowMenu] = useState(false);
+  // const [showMenu, setShowMenu] = useState(false);
 
-  const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
-  };
+  // const openMenu = () => {
+  //   if (showMenu) return;
+  //   setShowMenu(true);
+  // };
 
-  useEffect(() => {
-    if (!showMenu) return;
+  // useEffect(() => {
+  //   if (!showMenu) return;
 
-    const closeMenu = () => {
-      setShowMenu(false);
-    };
+  //   const closeMenu = () => {
+  //     setShowMenu(false);
+  //   };
 
-    document.addEventListener('click', closeMenu);
+  //   document.addEventListener('submit', closeMenu);
 
-    return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
+  //   return () => document.removeEventListener("submit", closeMenu);
+  // }, [showMenu]);
 
-  const updateContent = (e) => setContent(e.target.value);
+  const updateContent = (e) => setTitle(e.target.value);
   const updateAlbum = (e) => setImageUrl(e.target.value);
 
   const handleSubmit = async (e) => {
@@ -47,7 +47,7 @@ const UpdateAlbum = () => {
       userId,
 
       imageUrl,
-      content
+      title
     };
 
     try{
@@ -60,11 +60,6 @@ const UpdateAlbum = () => {
     }
   }
     return (
-      <>
-      <button onClick={openMenu}>
-        Edit Album
-      </button>
-      {showMenu && (
         <div className="form-container">
           <form onSubmit={handleSubmit} className='create-form'>
               <h3> Update Pic </h3>
@@ -76,13 +71,11 @@ const UpdateAlbum = () => {
               <input
                   type="text"
                   placeholder="Caption"
-                  value={content}
+                  value={title}
                   onChange={updateContent} />
               <button type="submit">Submit</button>
           </form>
         </div>
-      )}
-      </>
           )
 }
 

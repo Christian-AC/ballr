@@ -70,11 +70,11 @@ const UpdateImage = () => {
     }
   }
     return (
-      <>
-      <button onClick={openMenu}>
-        Edit Picture
-      </button>
-      {showMenu && (
+      // <>
+      // <button onClick={openMenu}>
+      //   Edit Picture
+      // </button>
+      // {showMenu && (
       <div className="form-container">
         <form onSubmit={handleSubmit} className='create-form'>
             <h3> Update Pic </h3>
@@ -100,8 +100,8 @@ const UpdateImage = () => {
             <button type="submit">Submit</button>
         </form>
       </div>
-      )}
-      </>
+      // )}
+      // </>
           )
 }
 
