@@ -30,7 +30,7 @@ const SingleImage = () => {
       }
     }
     getImages()
-  }, [dispatch, images])
+  }, [dispatch,])
 
   const handleDelete = async (e) => {
     e.preventDefault();

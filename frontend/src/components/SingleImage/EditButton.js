@@ -60,14 +60,8 @@ const UpdateImage = () => {
       content
     };
 
-    try{
-     const createImage = await dispatch(thunkUpdateImage(payload));
-      if (createImage) {
-        history.push(`/images/${createImage.images.id}`);
-      }
-    } catch (error){
-       await error.json();
-    }
+    await dispatch(thunkUpdateImage(payload));
+
   }
     return (
       // <>
