@@ -9,6 +9,7 @@ import AllImages from "./components/AllImages";
 import SingleImage from "./components/SingleImage";
 import AllAlbums from "./components/AllAlbums";
 import SingleAlbum from "./components/SingleAlbum";
+import Home from "./components/Home";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route path="/">
-            <AllAlbums />
+            <Home />
           </Route>
           <Route path="/images/create">
             <CreateImage />

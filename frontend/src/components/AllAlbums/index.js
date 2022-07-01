@@ -27,7 +27,8 @@ const AllAlbums = () => {
 
   return (
     <div id="albums-container">
-      <h1>Albums</h1>
+      <h1>Explore Albums</h1>
+      <div id="all-albums">
         { albums.map((album) => {
           return (
             <div id="single-album" key={album.id}>
@@ -40,6 +41,7 @@ const AllAlbums = () => {
             </div>
           );
         })}
+        </div>
      {sessionUser ? <CreateAlbum /> : null}
     </ div>
   )
