@@ -65,8 +65,8 @@ export const thunkCreateAlbum = (album) => async (dispatch) => {
 
   if(response.ok) {
     const data = await response.json();
-    dispatch(actionCreateAlbum(data));
-
+    const results = dispatch(actionCreateAlbum(data));
+    return results
   }
 };
 
@@ -108,12 +108,10 @@ const albumReducer = (state = initialState, action) => {
   switch(action.type) {
 
     case CREATE_ALBUM: {
-
-        const newState = {
-          ...state,
-          [action.album.id]: action.album
-        };
-        return newState;
+      const newState = {...state};
+        newState[action.album.id] = action.album
+        return newState
+      
     }
 
     case GET_ALBUMS:

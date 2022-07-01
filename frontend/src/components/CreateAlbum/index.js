@@ -25,16 +25,13 @@ const CreateAlbum = () => {
       title
     };
 
-    try{
      const createAlbum = await dispatch(thunkCreateAlbum(payload));
       if (createAlbum) {
         history.push(`/albums/${createAlbum.album.id}`);
       }
-    } catch (error){
-      await error.json();
-    }
+
   }
-  
+
     return (
       <div className="form-container">
         <form onSubmit={handleSubmit} className='create-form'>
