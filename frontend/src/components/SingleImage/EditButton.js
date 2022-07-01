@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom';
 const UpdateImage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  
+
   const { imageId } = useParams();
   const images = useSelector(state => state.images[imageId])
   const id = images.id;
@@ -19,7 +19,25 @@ const UpdateImage = () => {
   const [content, setContent] = useState(images.content);
   const [imageUrl, setImageUrl] = useState(images.imageUrl);
   const [albumId, setAlbumId] = useState('');
-  const [albums, setAlbums] = useState([])
+  const [albums, setAlbums] = useState([]);
+  const [showMenu, setShowMenu] = useState(false);
+
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true);
+  };
+
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = () => {
+      setShowMenu(false);
+    };
+
+    document.addEventListener('click', closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
 
   const updateContent = (e) => setContent(e.target.value);
   const updateImage = (e) => setImageUrl(e.target.value);
@@ -52,6 +70,11 @@ const UpdateImage = () => {
     }
   }
     return (
+      <>
+      <button onClick={openMenu}>
+        Edit Picture
+      </button>
+      {showMenu && (
       <div className="form-container">
         <form onSubmit={handleSubmit} className='create-form'>
             <h3> Update Pic </h3>
@@ -74,9 +97,11 @@ const UpdateImage = () => {
               );
             })}
           </select>
-            <button type="submit">Edit Picture</button>
+            <button type="submit">Submit</button>
         </form>
       </div>
+      )}
+      </>
           )
 }
 

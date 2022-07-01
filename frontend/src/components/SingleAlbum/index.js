@@ -48,7 +48,7 @@ const SingleAlbum = () => {
         <img
         className="album-cover" src={albums.imageUrl} alt="some-value"
         ></img>
-        {albums.userId === userId ? <button className="delete-album" onClick={handleDelete}>Delete Album</button> : null}
+        {albums.userId === userId ? <button className="delete" onClick={handleDelete}>Delete Album</button> : null}
         {albums.userId === userId ? <UpdateAlbum /> : null}
       </div >
         <AlbumImages albumId={albums.id} />
