@@ -16,7 +16,7 @@ const UpdateAlbum = () => {
 
 
   const [title, setTitle] = useState(albums.title);
-  const [imageUrl, setImageUrl] = useState(albums.imageUrl);
+  const [imageUrl, setAlbumUrl] = useState(albums.imageUrl);
   // const [showMenu, setShowMenu] = useState(false);
 
   // const openMenu = () => {
@@ -37,7 +37,7 @@ const UpdateAlbum = () => {
   // }, [showMenu]);
 
   const updateContent = (e) => setTitle(e.target.value);
-  const updateAlbum = (e) => setImageUrl(e.target.value);
+  const updateAlbum = (e) => setAlbumUrl(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,7 +64,7 @@ const UpdateAlbum = () => {
           <form onSubmit={handleSubmit} className='create-form'>
               <h3> Update Pic </h3>
               <input
-                type="text"
+                type="url"
                 placeholder="Image URL"
                 value={imageUrl}
                 onChange={updateAlbum} />

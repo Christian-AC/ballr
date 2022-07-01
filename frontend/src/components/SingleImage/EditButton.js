@@ -18,26 +18,26 @@ const UpdateImage = () => {
 
   const [content, setContent] = useState(images.content);
   const [imageUrl, setImageUrl] = useState(images.imageUrl);
-  const [albumId, setAlbumId] = useState('');
+  const [albumId, setAlbumId] = useState(images.albumId);
   const [albums, setAlbums] = useState([]);
-  const [showMenu, setShowMenu] = useState(false);
+  // const [showMenu, setShowMenu] = useState(false);
 
-  const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
-  };
+  // const openMenu = () => {
+  //   if (showMenu) return;
+  //   setShowMenu(true);
+  // };
 
-  useEffect(() => {
-    if (!showMenu) return;
+  // useEffect(() => {
+  //   if (!showMenu) return;
 
-    const closeMenu = () => {
-      setShowMenu(false);
-    };
+  //   const closeMenu = () => {
+  //     setShowMenu(false);
+  //   };
 
-    document.addEventListener('click', closeMenu);
+  //   document.addEventListener('click', closeMenu);
 
-    return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
+  //   return () => document.removeEventListener("click", closeMenu);
+  // }, [showMenu]);
 
   const updateContent = (e) => setContent(e.target.value);
   const updateImage = (e) => setImageUrl(e.target.value);
@@ -79,7 +79,7 @@ const UpdateImage = () => {
         <form onSubmit={handleSubmit} className='create-form'>
             <h3> Update Pic </h3>
             <input
-              type="text"
+              type="url"
               placeholder="Image URL"
               value={imageUrl}
               onChange={updateImage} />
