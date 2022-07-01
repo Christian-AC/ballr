@@ -28,14 +28,18 @@ const AllImages = () => {
 
   return (
     <div id="image-container">
+      <h1>Explore Images</h1>
       <div>
         { images.map((image) => {
           return (
-            <NavLink key={image.id} to={`/images/${image.id}`}>
-                <img id="single-image"
-                className="AllImages" src={image.imageUrl} alt='some value'
-              ></img>
-            </NavLink>
+            <div>
+              <NavLink key={image.id} to={`/images/${image.id}`}>
+                  <img id="single-image"
+                  className="AllImages" src={image.imageUrl} alt='some value'
+                ></img>
+              </NavLink>
+                <h2>{image.content}</h2>
+            </div>
           );
         })}
       </div>

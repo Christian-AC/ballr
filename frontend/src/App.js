@@ -34,8 +34,10 @@ function App() {
           <Route path="/albums/:albumId">
             <SingleAlbum />
           </Route>
-          <Route path="/">
+          <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/">
             <AllAlbums />
           </Route>
           <Route path="/images/create">

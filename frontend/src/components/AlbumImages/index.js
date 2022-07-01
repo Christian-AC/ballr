@@ -20,7 +20,7 @@ const AlbumImages = ({albumId}) => {
 
   return (
     <main>
-      <div className="comment-detail">
+      <div>
         { images.map((image) => {
           return (
             <NavLink key={image.id} to={`/images/${image.id}`}>
