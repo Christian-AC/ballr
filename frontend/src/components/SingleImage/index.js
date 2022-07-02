@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { thunkGetImage, thunkDeleteImage, thunkGetAllImages} from '../../store/images'
+import { thunkGetImage, thunkDeleteImage} from '../../store/images'
 import UpdateImage from './EditButton';
 import './SingleImage.css'
 
@@ -17,20 +17,11 @@ const SingleImage = () => {
   const images = useSelector(state => state.images[imageId])
 
   useEffect(() => {
-    dispatch(thunkGetAllImages())
- }, [dispatch])
-
-  useEffect(() => {
     async function getImages() {
-      try{
-        await dispatch(thunkGetImage(images))
-      } catch (err){
-        console.log("This photo doens't exist at this time ")
-        history.push('/images')
-      }
+    await dispatch(thunkGetImage(images))
     }
     getImages()
-  }, [dispatch,])
+  }, [dispatch])
 
   const handleDelete = async (e) => {
     e.preventDefault();

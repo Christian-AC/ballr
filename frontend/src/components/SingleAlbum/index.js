@@ -32,6 +32,7 @@ const SingleAlbum = () => {
     await dispatch(thunkGetAlbum(albums))
     }
     getAlbum()
+    // eslint-disable-next-line
   }, [dispatch])
 
   const handleDelete = async (e) => {
