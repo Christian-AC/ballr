@@ -20,21 +20,5 @@
 
 #modal-content {
   position: absolute;
-  background-color:orange;
-
-}
-
-form{
-  background-color:orange;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-}
-input{
-  margin-bottom: 10px;
-}
-
-.create-form{
-  width: 200%;
+  background-color:white;
 }

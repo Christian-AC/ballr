@@ -18,26 +18,26 @@ const UpdateImage = () => {
 
   const [content, setContent] = useState(images.content);
   const [imageUrl, setImageUrl] = useState(images.imageUrl);
-  const [albumId, setAlbumId] = useState(images.albumId);
+  const [albumId, setAlbumId] = useState('');
   const [albums, setAlbums] = useState([]);
-  // const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
-  // const openMenu = () => {
-  //   if (showMenu) return;
-  //   setShowMenu(true);
-  // };
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true);
+  };
 
-  // useEffect(() => {
-  //   if (!showMenu) return;
+  useEffect(() => {
+    if (!showMenu) return;
 
-  //   const closeMenu = () => {
-  //     setShowMenu(false);
-  //   };
+    const closeMenu = () => {
+      setShowMenu(false);
+    };
 
-  //   document.addEventListener('click', closeMenu);
+    document.addEventListener('click', closeMenu);
 
-  //   return () => document.removeEventListener("click", closeMenu);
-  // }, [showMenu]);
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
 
   const updateContent = (e) => setContent(e.target.value);
   const updateImage = (e) => setImageUrl(e.target.value);
@@ -70,16 +70,16 @@ const UpdateImage = () => {
     }
   }
     return (
-      // <>
-      // <button onClick={openMenu}>
-      //   Edit Picture
-      // </button>
-      // {showMenu && (
+      <>
+      <button onClick={openMenu}>
+        Edit Picture
+      </button>
+      {showMenu && (
       <div className="form-container">
         <form onSubmit={handleSubmit} className='create-form'>
             <h3> Update Pic </h3>
             <input
-              type="url"
+              type="text"
               placeholder="Image URL"
               value={imageUrl}
               onChange={updateImage} />
@@ -100,8 +100,8 @@ const UpdateImage = () => {
             <button type="submit">Submit</button>
         </form>
       </div>
-      // )}
-      // </>
+      )}
+      </>
           )
 }
 

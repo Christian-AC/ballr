@@ -5,11 +5,9 @@
 #allImages-container{
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap; ;
   justify-content: center;
   align-items: center;
   width: 80%;
-  height: auto;
 }
 
 img.AllImages:hover{
@@ -22,15 +20,12 @@ img.AllImages:hover{
   margin-left: 10%;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   border: rgb(211, 211, 211) solid 1px;
-  justify-content: center;
-  align-items: center;
 
 }
 
 .AllImages{
-  width: 300px;
+  width: 250px;
   height: 225px;
   margin: 20px;
 }

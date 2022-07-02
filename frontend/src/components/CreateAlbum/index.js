@@ -34,7 +34,6 @@ const CreateAlbum = () => {
       await error.json();
     }
   }
-  
     return (
       <div className="form-container">
         <form onSubmit={handleSubmit} className='create-form'>
