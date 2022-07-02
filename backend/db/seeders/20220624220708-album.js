@@ -5,7 +5,7 @@ module.exports = {
    return queryInterface.bulkInsert('Albums', [
       {
         title: "2022 NBA Finals",
-        userId: 1,
+        userId: 2,
         imageUrl: 'https://nypost.com/wp-content/uploads/sites/2/2022/06/1403377703.jpg?quality=75&strip=all',
         createdAt: new Date(),
         updatedAt: new Date()
@@ -13,7 +13,7 @@ module.exports = {
       {
         title: "Outdoor Basketball",
         userId: 2,
-        imageUrl: 'https://nypost.com/wp-content/uploads/sites/2/2022/06/1403377703.jpg?quality=75&strip=all',
+        imageUrl: 'https://www.sportcourtnortherncalifornia.com/wp-content/uploads/slider-basket-ball-court-putting-green.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
       }

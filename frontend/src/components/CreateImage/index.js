@@ -15,7 +15,7 @@ const CreateImage = () => {
 
   const [content, setContent] = useState('');
   const [imageUrl, setImageUrl] = useState('');
-  const [albumId, setAlbumId] = useState('null');
+  const [albumId, setAlbumId] = useState('1');
   const [albums, setAlbums] = useState([])
   const updateContent = (e) => setContent(e.target.value);
   const updateImage = (e) => setImageUrl(e.target.value);
@@ -37,13 +37,10 @@ const CreateImage = () => {
       content
     };
 
-    try{
      const createImage = await dispatch(thunkCreateImage(payload));
       if (createImage) {
-        history.push(`/images/${createImage.images.id}`);
-      }
-    } catch (error){
-      await error.json();
+        history.push(`/images/${createImage.image.id}`);
+
     }
   }
     return (

@@ -20,7 +20,7 @@ const AllAlbums = () => {
 
   useEffect(()=>{
     if(selectorAlbums){
-      console.log(selectorAlbums)
+
       setAlbums(Object.values(selectorAlbums))
     }
   },[selectorAlbums])

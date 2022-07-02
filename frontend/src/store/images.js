@@ -34,7 +34,7 @@ const actionDeleteImage = (imageId) => {
 }
 
 
-// this tunk gets a single image
+
 export const thunkGetImage = (imageId) => async (dispatch) => {
   const response = await csrfFetch(`/api/images/${imageId.id}`);
 
@@ -65,8 +65,8 @@ export const thunkCreateImage = (image) => async (dispatch) => {
 
   if(response.ok) {
     const data = await response.json();
-    dispatch(actionCreateImage(data));
-
+    const results = dispatch(actionCreateImage(data));
+    return results
   }
 };
 
@@ -80,7 +80,7 @@ export const thunkUpdateImage = (image) => async (dispatch) => {
   if(response.ok) {
     const data = await response.json();
     dispatch(actionCreateImage(data));
-
+    return data;
   }
 };
 
@@ -95,7 +95,7 @@ export const thunkDeleteImage = (image) => async (dispatch) => {
 
   if(response.ok) {
     dispatch(actionDeleteImage(image.id));
-
+    return true;
   }
 };
 
@@ -108,12 +108,9 @@ const imageReducer = (state = initialState, action) => {
   switch(action.type) {
 
     case CREATE_IMAGE: {
-
-        const newState = {
-          ...state,
-          [action.image.id]: action.image
-        };
-        return newState;
+        const newState = {...state};
+        newState[action.image.id] = action.image
+        return newState
     }
 
     case GET_IMAGE:
