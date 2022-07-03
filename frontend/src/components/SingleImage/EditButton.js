@@ -81,7 +81,8 @@ const UpdateImage = () => {
                 type="text"
                 placeholder="Caption"
                 value={content}
-                onChange={updateContent} />
+                onChange={updateContent}
+                required />
            <select value={albumId} onChange={updateAlbum} >
             { albums.map((album) => {
               return (

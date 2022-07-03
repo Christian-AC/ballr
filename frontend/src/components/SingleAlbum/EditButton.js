@@ -72,7 +72,8 @@ const UpdateAlbum = () => {
                   type="text"
                   placeholder="Caption"
                   value={title}
-                  onChange={updateContent} />
+                  onChange={updateContent}
+                  required />
               <button id='edit-submit' type="submit">Submit</button>
           </form>
         </div>
