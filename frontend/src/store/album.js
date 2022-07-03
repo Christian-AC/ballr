@@ -95,7 +95,7 @@ export const thunkDeleteAlbum = (album) => async (dispatch) => {
 
   if(response.ok) {
     dispatch(actionDeleteAlbum(album.id));
-
+    return true;
   }
 };
 
@@ -111,15 +111,13 @@ const albumReducer = (state = initialState, action) => {
       const newState = {...state};
         newState[action.album.id] = action.album
         return newState
-      
-    }
 
+    }
     case GET_ALBUMS:
       action.albums.forEach(album => {
         newState[album.id] = album
       })
       return newState;
-
     case UPDATE_ALBUM: {
       return {
           newState,
@@ -129,7 +127,6 @@ const albumReducer = (state = initialState, action) => {
           }
         };
       }
-
     case DELETE_ALBUM:
       delete newState[action.albumId]
       return newState;
