@@ -28,7 +28,7 @@ function Navigation({ isLoaded }){
           <LoginFormModal />
         </li>
         <li>
-          <NavLink to="/signup">Sign Up</NavLink>
+          <NavLink id="Signupnav" to="/signup">Sign Up</NavLink>
         </li>
         <li>
           <form onSubmit={demoLogin}>

@@ -10,6 +10,7 @@ import SingleImage from "./components/SingleImage";
 import AllAlbums from "./components/AllAlbums";
 import SingleAlbum from "./components/SingleAlbum";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }

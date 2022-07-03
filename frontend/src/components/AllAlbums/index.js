@@ -26,6 +26,7 @@ const AllAlbums = () => {
   },[selectorAlbums])
 
   return (
+    <div>
     <div id="albums-container">
       <h1>Explore Albums</h1>
       <div id="all-albums">
@@ -42,8 +43,9 @@ const AllAlbums = () => {
           );
         })}
         </div>
-     {sessionUser ? <CreateAlbum /> : null}
     </ div>
+     {sessionUser ? <CreateAlbum /> : null}
+</div>
   )
 }
 

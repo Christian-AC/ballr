@@ -27,14 +27,15 @@ const AllImages = () => {
   },[selectorImages])
 
   return (
+    <div>
     <div id="allImages-container">
       <h1>Explore Images</h1>
       <div id="image-container">
         { images.map((image) => {
           return (
-            <div key={image.id}>
+            <div id="single-image" key={image.id}>
               <NavLink key={image.id} to={`/images/${image.id}`}>
-                  <img id="single-image"
+                  <img
                   className="AllImages" src={image.imageUrl} alt='some value'
                 ></img>
               </NavLink>
@@ -43,8 +44,9 @@ const AllImages = () => {
           );
         })}
       </div>
-      {sessionUser ? <CreateImage /> : null}
     </ div>
+      {sessionUser ? <CreateImage /> : null}
+    </div>
   )
 }
 

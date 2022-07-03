@@ -1,11 +1,24 @@
 .single-image-container{
   display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin-left: 20%;
+  flex-direction: row;
+  width: 100%;
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid grey;
+  background-color: black;
+  color:white;
+  font-size: 40px;
+}
+
+#this-image-container{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#edit-delete{
+  font-size: 20px;
 }
 
 #single-img{

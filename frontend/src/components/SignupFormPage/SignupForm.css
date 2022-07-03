@@ -7,19 +7,46 @@
   margin-right: 50%;
   flex-direction: column;
   border: black solid 2px;
-  background-color: orange;
+  background-color: rgb(255, 255, 255);
   border-radius: 15px 50px 30px 5px;
-  color: white;
+  color: orange;
+  border-radius: 20px;
+  padding-left: 20px;
 }
 
+#background-signup{
+  /* background-size: 1500px 700px; */
+  background-position: center;
+  background-image:url('../../../../backend/images/Basketball-Wallpaper-02-2560x1600-1-2048x1280.jpg');
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-repeat: no-repeat;
+  width: 110%;
+  height: 700px;
+}
+
+input {
+  width: 80%;
+  border: none;
+  border-bottom: 2px solid black;
+  padding: 8px 15px;
+  margin-left: 20px 0;
+  box-sizing: border-box;
+}
 
 #signup-label {
   display: flex;
-  font-size: 30px;
+  font-size: 20px;
   margin-bottom: 10px;
 }
 
 #signUp-button {
   margin-top: 10px;
-  border: black solid 1px;
+  width: 50%;
+  /* border: black solid 1px; */
+  background-color: orange;
+  color: white;
+  border-radius: 15px 15px 15px 15px;
 }

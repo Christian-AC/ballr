@@ -41,17 +41,23 @@ const SingleAlbum = () => {
 }
 
   return (
+  <div>
     <div id="single-album-container">
+        <h1>{albums.title} Album</h1>
       <div id='album-container'>
-        <h1>{albums.title}</h1>
         <img
         className="album-cover" src={albums.imageUrl} alt="some-value"
         ></img>
-        {albums.userId === userId ? <button className="delete" onClick={handleDelete}>Delete Album</button> : null}
+        <div id="edit-delete">
         {albums.userId === userId ? <UpdateAlbum /> : null}
+        {albums.userId === userId ? <button className="delete" onClick={handleDelete}>Delete Album</button> : null}
+        </div>
       </div >
+    </div>
+    <div className="allImagescontainer">
         <AlbumImages albumId={albums.id} />
     </div>
+  </div>
   )
 }
 

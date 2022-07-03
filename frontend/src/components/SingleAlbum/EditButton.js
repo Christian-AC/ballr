@@ -61,7 +61,7 @@ const UpdateAlbum = () => {
   }
     return (
         <div className="form-container">
-          <form onSubmit={handleSubmit} className='create-form'>
+          <form onSubmit={handleSubmit} className='edit-album'>
               <h3> Update Pic </h3>
               <input
                 type="url"
@@ -73,7 +73,7 @@ const UpdateAlbum = () => {
                   placeholder="Caption"
                   value={title}
                   onChange={updateContent} />
-              <button type="submit">Submit</button>
+              <button id='edit-submit' type="submit">Submit</button>
           </form>
         </div>
           )

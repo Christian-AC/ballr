@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { thunkCreateAlbum } from '../../store/album';
+import './CreateAlbum.css'
 
 const CreateAlbum = () => {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const CreateAlbum = () => {
   }
 
     return (
-      <div className="form-container">
+      <div className="createAlbum-container">
         <form onSubmit={handleSubmit} className='create-form'>
             <h3> Create a new album </h3>
             <input
@@ -47,7 +48,7 @@ const CreateAlbum = () => {
                 value={title}
                 onChange={updateTitle}
                 required />
-            <button type="submit">Create new pic</button>
+            <button id="createAlbum-button" type="submit">Create new pic</button>
         </form>
       </div>
           )

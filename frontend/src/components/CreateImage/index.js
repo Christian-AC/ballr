@@ -45,7 +45,7 @@ const CreateImage = () => {
   }
     return (
       <div className="form-container">
-        <form onSubmit={handleSubmit} className='create-form'>
+        <form onSubmit={handleSubmit} className='createImage-form'>
             <h3> Upload a new image </h3>
             <input
               type="url"
@@ -67,7 +67,7 @@ const CreateImage = () => {
               );
             })}
           </select>
-            <button type="submit">Create new pic</button>
+            <button id='createImage-button' type="submit">Create new pic</button>
         </form>
       </div>
           )

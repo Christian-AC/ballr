@@ -1,1 +1,28 @@
+.createImage-form{
+  border: 1px solid black;
 
+  width: 30%;
+  margin-left: 35%;
+}
+
+#createImage-button {
+  margin-top: 10px;
+  width: 28%;
+  /* border: black solid 1px; */
+  background-color: orange;
+  color: white;
+  border-radius: 15px 15px 15px 15px;
+}
+
+#this-image-container{
+  margin-left: 20%;
+}
+
+select {
+  width: 50%;
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: black solid 2px;
+}

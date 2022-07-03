@@ -1,0 +1,14 @@
+.create-form{
+  border: 1px solid black;
+  width: 30%;
+  margin-left: 35%;
+}
+
+#createAlbum-button {
+  margin-top: 10px;
+  width: 28%;
+  /* border: black solid 1px; */
+  background-color: orange;
+  color: white;
+  border-radius: 15px 15px 15px 15px;
+}

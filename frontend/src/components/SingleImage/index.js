@@ -40,12 +40,16 @@ const SingleImage = () => {
 
   return (
     <div className="single-image-container">
+      <div id= 'this-image-container'>
       <img id="single-img"
         className="AllImages" src={images.imageUrl} alt="some-value"
         ></img>
         <h1>{images.content}</h1>
-      {images.userId === userId ? <button className="delete" onClick={handleDelete}>Delete Photo</button> : null}
+        </div>
+        <div id="edit-delete">
       {images.userId === userId ? <UpdateImage /> : null}
+      {images.userId === userId ? <button className="delete" onClick={handleDelete}>Delete Photo</button> : null}
+      </div>
     </div>
   )
 }

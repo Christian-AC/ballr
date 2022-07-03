@@ -29,7 +29,7 @@ function SignupFormPage() {
   };
 
   return (
-        <div >
+  <div id='background-signup'  >
     <form id="signup-container" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}

@@ -8,8 +8,10 @@
   flex-wrap: wrap; ;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 100%;
   height: auto;
+  background-color: black;
+  color:white;
 }
 
 img.AllImages:hover{
@@ -23,10 +25,19 @@ img.AllImages:hover{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  border: rgb(211, 211, 211) solid 1px;
+  /* border: rgb(211, 211, 211) solid 1px; */
   justify-content: center;
   align-items: center;
-
+}
+#single-image{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* border-bottom: white solid 1px; */
+  margin: 5px;
+  border-radius: 50px;
 }
 
 .AllImages{
