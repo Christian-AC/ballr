@@ -1,6 +1,6 @@
 # Ballr
 
-Ballr is a clone of flick. Where it provides a platform for basketball enjoyers to share images with others.
+Ballr is a react/redux clone of flick. Where it provides a platform for basketball enjoyers to share images with others.
 
 LiveSite link: https://ball-r.herokuapp.com/
 Features list: https://github.com/Christian-AC/ballr/wiki/Features-List
