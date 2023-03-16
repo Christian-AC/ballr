@@ -49,6 +49,9 @@ function Navigation({ isLoaded }){
           <NavLink exact to="/albums">Albums</NavLink>
         </li>
         <li>
+          <NavLink exact to="/images/upload">Upload</NavLink>
+        </li>
+        <li>
           <NavLink exact to="/images">Images</NavLink>
         </li>
         <li id="profileButton">

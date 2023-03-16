@@ -11,6 +11,8 @@ import AllAlbums from "./components/AllAlbums";
 import SingleAlbum from "./components/SingleAlbum";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
+import UploadImage from "./components/UploadImage";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +32,9 @@ function App() {
           <Route path="/albums"exact>
             <AllAlbums />
           </Route>
+          <Route path="/images/upload"exact>
+            <UploadImage />
+          </Route>
           <Route path="/images/:imageId">
             <SingleImage />
           </Route>
@@ -41,9 +46,6 @@ function App() {
           </Route>
           <Route path="/">
             <Home />
-          </Route>
-          <Route path="/images/create">
-            <CreateImage />
           </Route>
         </Switch>
       )}

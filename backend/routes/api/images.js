@@ -4,6 +4,10 @@ const { check } = require('express-validator');
 const {Image} = require('./../../db/models');
 const router = express.Router();
 
+const {
+  singleMulterUpload,
+  singlePublicFileUpload,
+} = require("../../awsS3");
 
 
 router.get(
@@ -50,13 +54,13 @@ router.post(
   singleMulterUpload("image"),
 
   asyncHandler(async (req, res) => {
-    const { content } = req.body;
+    const { content, userId, albumId } = req.body;
     const imgUrl = await singlePublicFileUpload(req.file);
     const newImage = await Image.create({
-      imgUrl: imgUrl,
-      userId: userId,
-      albumId: albumId,
-      content: content
+      imgUrl,
+      userId,
+      albumId,
+      content,
     });
 
     setTokenCookie(res, user);
