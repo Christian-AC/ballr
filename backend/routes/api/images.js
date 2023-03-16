@@ -33,15 +33,37 @@ router.get(
   })
 );
 
+// router.post(
+//   '/',
+//   asyncHandler(async function(req, res, next) {
+//     try{
+//       const newImage = await Image.create(req.body);
+//       return res.json(newImage);
+//     } catch (err){
+//       next(err);
+//     }
+//   })
+// );
+
 router.post(
-  '/', 
-  asyncHandler(async function(req, res, next) {
-    try{
-      const newImage = await Image.create(req.body);
-      return res.json(newImage);
-    } catch (err){
-      next(err);
-    }
+  "/",
+  singleMulterUpload("image"),
+
+  asyncHandler(async (req, res) => {
+    const { content } = req.body;
+    const imgUrl = await singlePublicFileUpload(req.file);
+    const newImage = await Image.create({
+      imgUrl: imgUrl,
+      userId: userId,
+      albumId: albumId,
+      content: content
+    });
+
+    setTokenCookie(res, user);
+
+    return res.json({
+      newImage,
+    });
   })
 );
 

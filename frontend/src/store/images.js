@@ -56,17 +56,24 @@ export const thunkGetAllImages = (images) => async (dispatch) => {
 };
 
 
-export const thunkCreateImage = (image) => async (dispatch) => {
-  const response = await csrfFetch(`/api/images`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(image),
-  });
+export const thunkCreateImage = (photo) => async (dispatch) => {
+  const { image, content } = photo;
+  const formData = new FormData();
+  formData.append('content', content);
 
-  if(response.ok) {
-    const data = await response.json();
-    const results = dispatch(actionCreateImage(data));
-    return results
+  if(image) formData.append('image', image);
+
+  const response = await csrfFetch(`/api/photos`, {
+      method: 'POST',
+      headers: {
+          "Content-Type": "multipart/form-data",
+      },
+      body: formData,
+  });
+  if (response.ok) {
+      const newPhoto = await response.json();
+      dispatch(actionCreateImage(newPhoto));
+      return newPhoto;
   }
 };
 
