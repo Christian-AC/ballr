@@ -55,15 +55,16 @@ router.post(
 
   asyncHandler(async (req, res) => {
     const { content, userId, albumId } = req.body;
-    const imgUrl = await singlePublicFileUpload(req.file);
+    const imageUrl = await singlePublicFileUpload(req.file);
+
     const newImage = await Image.create({
-      imgUrl,
+      imageUrl,
       userId,
       albumId,
       content,
     });
 
-    setTokenCookie(res, user);
+    // setTokenCookie(res, user);
 
     return res.json({
       newImage,

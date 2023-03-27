@@ -45,7 +45,7 @@ const AllImages = () => {
         })}
       </div>
     </ div>
-      {sessionUser ? <CreateImage /> : null}
+      {/* {sessionUser ? <CreateImage /> : null} */}
     </div>
   )
 }

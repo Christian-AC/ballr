@@ -9,7 +9,12 @@ const multer = require("multer");
 //  AWS_SECRET_ACCESS_KEY
 //  and aws will automatically use those environment variables
 
-const s3 = new AWS.S3({ apiVersion: "2006-03-01" });
+const s3 = new AWS.S3({
+
+  apiVersion: "2006-03-01",
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+});
 
 // --------------------------- Public UPLOAD ------------------------
 
@@ -25,7 +30,6 @@ const singlePublicFileUpload = async (file) => {
     ACL: "public-read",
   };
   const result = await s3.upload(uploadParams).promise();
-
   // save the name of the file in your bucket as the key in your database to retrieve for later
   return result.Location;
 };

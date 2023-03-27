@@ -9,10 +9,19 @@ function UploadImage() {
     const history = useHistory();
     const dispatch = useDispatch();
     const userId = useSelector((state) => state.session.user?.id);
+    const selectorAlbums = useSelector(state => state.albums);
 
     const [content, setContent] = useState('');
     const [albumId, setAlbumId] = useState('1');
+    const [albums, setAlbums] = useState([])
     const [image, setImage] = useState(null);
+    const updateAlbum = (e) => setAlbumId(e.target.value);
+
+    useEffect(()=>{
+        if(selectorAlbums){
+          setAlbums(Object.values(selectorAlbums))
+        }
+      },[selectorAlbums])
 
 
 
@@ -58,6 +67,15 @@ function UploadImage() {
                                 <input  type="text" value={content} placeholder='Enter a title' onChange={e => setContent(e.target.value)} />
 
                             </label>
+                            <select value={albumId} onChange={updateAlbum} >
+                                { albums.map((album) => {
+                                return (
+                                    <option key={album.id} value={album.id} >
+                                    {album.title}
+                                    </option>
+                                );
+                                })}
+                            </select>
                             <div className='box'>
                                 <input type='file' onChange={updateFile}/>
                           </div>

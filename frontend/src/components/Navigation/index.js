@@ -19,7 +19,14 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <ul>
+        <li>
+          <NavLink exact to="/images/upload">Upload</NavLink>
+        </li>
+        <li>
+          <ProfileButton user={sessionUser} />
+        </li>
+      </ul>
     );
   } else {
     sessionLinks = (
@@ -47,9 +54,6 @@ function Navigation({ isLoaded }){
         </li>
         <li>
           <NavLink exact to="/albums">Albums</NavLink>
-        </li>
-        <li>
-          <NavLink exact to="/images/upload">Upload</NavLink>
         </li>
         <li>
           <NavLink exact to="/images">Images</NavLink>
