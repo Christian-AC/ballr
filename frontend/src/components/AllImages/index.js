@@ -9,22 +9,22 @@ import Banner from '../SearchBar';
 const AllImages = () => {
   const dispatch = useDispatch();
 
-  const [images, setImages] = useState([])
+  // const [images, setImages] = useState([])
 
   const selectorImages = useSelector(state => state.images)
   const sessionUser = useSelector(state => state.session.user);
+  const images = useSelector((state) => Object.values(state.images))
 
   useEffect(() => {
      dispatch(thunkGetAllImages())
   }, [dispatch])
 
 
-  useEffect(()=>{
-    if(selectorImages){
-      // console.log(selectorImages)
-      setImages(Object.values(selectorImages))
-    }
-  },[selectorImages])
+  // useEffect(()=>{
+  //   if(selectorImages){
+  //     setImages(Object.values(selectorImages))
+  //   }
+  // },[selectorImages])
 
   return (
     <div>

@@ -34,8 +34,10 @@ function UploadImage() {
             userId,
             albumId
         }
-        const photo = await dispatch(thunkCreateImage(imageInfo));
-        history.push(`/images/${photo.images.id}`);
+        const createImage = await dispatch(thunkCreateImage(imageInfo));
+        if (createImage) {
+            history.push(`/images`);
+        }
     }
 
     const handleCancelSubmit = async (e) => {

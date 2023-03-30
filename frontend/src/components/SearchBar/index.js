@@ -24,7 +24,7 @@ function Banner() {
           {/* Search Bar Container don't delete this div*/}
         </div>
         <div className="banner-form-container">
-            <label htmlFor="search">
+            <label className="label-banner" htmlFor="search">
               <input
                 type="text"
                 className="banner-search-input"
@@ -44,7 +44,6 @@ function Banner() {
       </div>
     </div>
     </>
-
   );
 }
 
