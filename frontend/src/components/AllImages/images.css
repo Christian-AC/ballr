@@ -8,7 +8,7 @@
   flex-wrap: wrap; ;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  /* width: 100%; */
   height: auto;
   background-color: black;
   color:white;
@@ -19,9 +19,12 @@ img.AllImages:hover{
 
 }
 
+#images-title{
+  margin-bottom:-200px;
+}
 #image-container{
-  width: 80%;
-  margin-left: 10%;
+  width: 110%;
+  /* margin-left: 10%; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

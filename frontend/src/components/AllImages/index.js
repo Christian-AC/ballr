@@ -29,6 +29,7 @@ const AllImages = () => {
   return (
     <div>
     <div id="allImages-container">
+      <h1 id="images-title">Explore Images</h1>
       <Banner/>
       <div id="image-container">
         { images.map((image) => {

@@ -10,7 +10,8 @@
 .banner-content {
   display: grid;
   grid-template-rows: 65% 35%;
-  margin-top: -175px;
+  margin-top: -600px;
+  margin-bottom:-250px;
   width: 100%;
 }
 
@@ -18,7 +19,8 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding: 25px;
+  /* padding: px; */
+  border: 5px;
 }
 
 .banner-form-container {
