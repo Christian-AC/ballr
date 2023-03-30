@@ -37,7 +37,6 @@ function Banner() {
               ></input>
             </label>
             <button className="banner-submit" onClick={handleForm}>
-              <FaSearch/>
             </button>
         </div>
       </div>
