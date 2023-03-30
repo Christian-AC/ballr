@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { thunkGetAllImages } from '../../store/images';
 import './images.css'
-import CreateImage from "../CreateImage"
+import Banner from '../SearchBar';
 
 
 const AllImages = () => {
@@ -29,14 +29,14 @@ const AllImages = () => {
   return (
     <div>
     <div id="allImages-container">
-      <h1>Explore Images</h1>
+      <Banner/>
       <div id="image-container">
         { images.map((image) => {
           return (
             <div id="single-image" key={image.id}>
               <NavLink key={image.id} to={`/images/${image.id}`}>
                   <img
-                  className="AllImages" src={image.imageUrl} 
+                  className="AllImages" src={image.imageUrl}
                 ></img>
               </NavLink>
                 {/* <h2>{image.content}</h2> */}

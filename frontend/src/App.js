@@ -12,6 +12,7 @@ import SingleAlbum from "./components/SingleAlbum";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 import UploadImage from "./components/UploadImage";
+import SearchPage from "./components/Search";
 
 
 function App() {

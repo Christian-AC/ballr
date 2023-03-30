@@ -1,6 +1,5 @@
 .banner-container {
   height: 50vh;
-  background-image: url("../Banner/banner.jpg");
   opacity: 0.9;
   background-position: center;
   background-size: cover;
@@ -39,8 +38,8 @@
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   text-align: left;
-  background-color: rgba(0, 0, 0, 0.535);
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 .banner-search-input:focus {
@@ -48,14 +47,14 @@
 }
 
 .banner-search-input::placeholder {
-  color: white;
+  color: black;
 }
 
 .banner-submit {
   height: 46px;
   width: 8%;
   border: none;
-  background-color: rgba(255, 10, 55, 0.792);
+  background-color: orange;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   position: relative;
