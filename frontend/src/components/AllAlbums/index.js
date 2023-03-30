@@ -35,7 +35,7 @@ const AllAlbums = () => {
             <div id="single-album" key={album.id}>
               <NavLink key={album.id} to={`/albums/${album.id}`}>
                   <img
-                  className="AllImages" src={album.imageUrl} alt='some value'
+                  className="AllImages" src={album.imageUrl} 
                 ></img>
               </NavLink>
                 <h2 id="album-titles">{album.title}</h2>

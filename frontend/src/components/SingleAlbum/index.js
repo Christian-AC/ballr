@@ -46,7 +46,7 @@ const SingleAlbum = () => {
         <h1>{albums.title} Album</h1>
       <div id='album-container'>
         <img
-        className="album-cover" src={albums.imageUrl} alt="some-value"
+        className="album-cover" src={albums.imageUrl}
         ></img>
         <div id="edit-delete">
         {albums.userId === userId ? <UpdateAlbum /> : null}

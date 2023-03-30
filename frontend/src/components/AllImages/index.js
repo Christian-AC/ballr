@@ -36,7 +36,7 @@ const AllImages = () => {
             <div id="single-image" key={image.id}>
               <NavLink key={image.id} to={`/images/${image.id}`}>
                   <img
-                  className="AllImages" src={image.imageUrl} alt='some value'
+                  className="AllImages" src={image.imageUrl} 
                 ></img>
               </NavLink>
                 {/* <h2>{image.content}</h2> */}

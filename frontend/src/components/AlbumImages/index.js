@@ -26,7 +26,7 @@ const AlbumImages = ({albumId}) => {
             return (
               <NavLink key={image.id} to={`/images/${image.id}`}>
                   <img
-                  className="AllImages" src={image.imageUrl} alt='some value'
+                  className="AllImages" src={image.imageUrl} 
                 ></img>
               </NavLink>
             );

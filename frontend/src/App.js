@@ -26,6 +26,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+        <Route path="/search/:searchValue" exact={true}>
+					<SearchPage />
+				</Route>
           <Route path="/images"exact>
             <AllImages />
           </Route>

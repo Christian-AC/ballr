@@ -42,7 +42,7 @@ const SingleImage = () => {
     <div className="single-image-container">
       <div id= 'this-image-container'>
       <img id="single-img"
-        className="AllImages" src={images.imageUrl} alt="some-value"
+        className="AllImages" src={images.imageUrl} 
         ></img>
         <h1>{images.content}</h1>
         </div>
