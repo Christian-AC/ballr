@@ -1,5 +1,4 @@
 import { useHistory } from "react-router-dom";
-import { FaSearch } from 'react-icons/fa'
 import "./Banner.css";
 import { useState } from "react";
 
