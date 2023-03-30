@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import { thunkCreateImage } from '../../store/images';
+import './upload.css'
 
 
 function UploadImage() {
@@ -34,7 +35,7 @@ function UploadImage() {
             albumId
         }
         const photo = await dispatch(thunkCreateImage(imageInfo));
-        history.push(`/images/${photo.image.id}`);
+        history.push(`/images/${photo.images.id}`);
     }
 
     const handleCancelSubmit = async (e) => {
@@ -49,21 +50,17 @@ function UploadImage() {
     }
 
     return (
+            <div className="upload-container">
 
-        <div>
-            <div>
                 <div>
-                    <button onClick={() => history.goBack()}><i className="fa-solid fa-circle-arrow-left"></i>Back</button>
-                </div>
-                <div>
-                    <h2>Upload your image</h2>
+                    <h2 className='upload-title'>Upload your image</h2>
                     <div >
                     </div>
                     <form  onSubmit={handleOnSubmit}>
                         <div className='up-form-input'>
                             <label>
 
-                                <input  type="text" value={content} placeholder='Enter a title' onChange={e => setContent(e.target.value)} />
+                                <input className='signup-input'  type="text" value={content} placeholder='Enter a title' onChange={e => setContent(e.target.value)} />
 
                             </label>
                             <select value={albumId} onChange={updateAlbum} >
@@ -79,20 +76,18 @@ function UploadImage() {
                                 <input type='file' onChange={updateFile}/>
                           </div>
 
+                        </div >
+                        <div>
+                            <button className='upload-buttons' variant="primary" type="submit">
+                                Submit
+                            </button>
+                             <button onClick={() => history.goBack()}><i className='upload-buttons'></i>Back</button>
                         </div>
-
-                        <button variant="primary" type="submit">
-                            Submit
-                        </button>
                     </form>
                     <div>
-                    <button onClick={handleCancelSubmit}>
-                        Cancel
-                    </button>
                     </div>
                 </div>
             </div>
-        </div>
 
     )
 }

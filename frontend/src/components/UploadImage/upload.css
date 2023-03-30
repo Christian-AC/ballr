@@ -1,0 +1,16 @@
+.upload-container{
+    margin: auto;
+    width: 25%;
+    /* border: 3px solid green; */
+    padding: 10px;
+}
+
+.upload-title{
+    color: white;
+    font-size: 40px;
+}
+
+
+.upload-buttons{
+    margin-right: 20px;
+}

@@ -13,6 +13,8 @@ import Home from "./components/Home";
 import Footer from "./components/Footer";
 import UploadImage from "./components/UploadImage";
 import SearchPage from "./components/Search";
+import { thunkGetAllALbums } from "./store/album";
+import { thunkGetAllImages } from "./store/images";
 
 
 function App() {
@@ -20,6 +22,9 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(thunkGetAllImages());
+    dispatch(thunkGetAllALbums())
+
   }, [dispatch]);
 
   return (
